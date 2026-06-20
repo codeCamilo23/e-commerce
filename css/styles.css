@@ -48,13 +48,23 @@ aside{
     font-size: 1.3rem;
 
 }
+.menu{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.bi-hand-index-fill,
+.bi-cart-fill{
+    transform: rotateZ(90deg);
+
+}
 .boton-menu{
     background-color: transparent;
     border: 0;
     color: var(--clr-white);
     font-size: 1rem;
     cursor: pointer;
-    
+
 }
 .texto-footer{
     color: gray;
