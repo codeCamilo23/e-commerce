@@ -23,7 +23,7 @@
             <nav>
                 <ul>
                     <li>
-                        <a href="/index.html" class="boton menu boton-volver">
+                        <a href="index.html" class="boton menu boton-volver">
                          <i class="bi bi-arrow-return-left "></i> Seguir comprando 
                         </a>|
                     </li>
@@ -44,13 +44,14 @@
         </aside>
         <main>
             <h2 class="titulo-principal">Carrito</h2>
+            
             <div class="contenedor-carrito">
               <p class="carrito-vacio">Tu carrito esta vacio<i class="bi bi-emoji-frown"></i> </p>
            
-              <div class="carrito-productos">
+              <div class="carrito-productos disables">
                 
                 <div class="carrito-producto">
-                    <img src="img/pintarKitNiño.jpg" alt="">
+                    <img class="carrito-producto-imagen" src="img/pintarKitNiño.jpg" alt="">
                     <div class="carrito-producto-titulo">
                         <small>Nombre</small>
                         <h3>Tablero kit pintar</h3>
@@ -80,8 +81,8 @@
             </div>
 
             <div class="carrito-productos">
-                <div class="carrito-producto">
-                    <img src="img/tableroAbaco.jpg" alt="">
+                <div class="carrito-producto disables">
+                    <img class="carrito-producto-imagen" src="img/tableroAbaco.jpg" alt="">
                     <div class="carrito-producto-titulo">
                         <small>Titulo</small>
                         <h3>Tablero Abaco</h3>
@@ -104,7 +105,7 @@
                     </button>
                 </div>
 
-                <div class="carrito-acciones">
+                <div class="carrito-acciones disables">
                     <div class="carrito-acciones-izquierda">
                         <button class="carrito-acciones-vaciar">Vaciar Carrito</button>
                          
@@ -118,7 +119,10 @@
                     <button class="carrito-acciones-comprar">Comprar ahora</button>
                 </div>
             </div>
+                            <p class="carrito-comprado disebled">Muchas gracias por tu compra<i class="bi bi-emoji-laughing"></i> </p>
+
             </div>
+
             
            
 
