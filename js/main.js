@@ -2,7 +2,7 @@ const productos = [
     {
         id: "tablero-01",
         titulo: "tablero acrilico ",
-        imagen: "./img/01.png",
+        imagen: "./img/tableros/01.png",
         categoria: {
             nombre: "tablero colgar",
             id: "tableros"
@@ -13,7 +13,7 @@ const productos = [
     {
         id: "tablero-02",
         titulo: "tablero de Pintar Doble",
-        imagen: "./img/02.png",
+        imagen: "./img/tableros/02.png",
         categoria: {
             nombre: "tablero niños",
             id: "tableros"
@@ -26,8 +26,8 @@ const productos = [
 
     {
         id: "tablero-04",
-        titulo: "tablero publicidad Grande",
-        imagen: "./img/03.png",
+        titulo: "tablero publicidad Pequeño",
+        imagen: "./img/tableros/07.png",
         categoria: {
             nombre: "tablero publicidad",
             id: "tableros"
@@ -38,7 +38,7 @@ const productos = [
     {
         id: "tablero-05",
         titulo: "parques imanado ",
-        imagen: "./img/04.png",
+        imagen: "./img/tableros/13.png",
         categoria: {
             nombre: "didacticos",
             id: "tableros"
@@ -49,7 +49,7 @@ const productos = [
     {
         id: "soporte-01",
         titulo: "tripode madera ",
-        imagen: "./img/13.png",
+        imagen: "./img/tableros/13.png",
         categoria: {
             nombre: "tableros",
             id: "tableros"
@@ -61,7 +61,7 @@ const productos = [
     {
         id: "tab-aba",
         titulo: "tablero abaco ",
-        imagen: "./img/06.png",
+        imagen: "./img/tableros/06.png",
         categoria: {
             nombre: "tableros niños",
             id: "tableros"
@@ -69,7 +69,39 @@ const productos = [
         precio: 300000
 
     },    
-    
+     {
+        id: "didactico 01",
+        titulo: "Ajedrez plastico N02",
+        imagen: "./img/didacticos/04.jpeg",
+        categoria: {
+            nombre: "tableros niños",
+            id: "didacticos"
+        },
+        precio: 300000
+
+    },    
+    {
+        id: "didactico 02",
+        titulo: "parques Madera 50cm x 50 ",
+        imagen: "./img/didacticos/02.png",
+        categoria: {
+            nombre: "tableros niños",
+            id: "didacticos"
+        },
+        precio: 300000
+
+    },    
+       {
+        id: "papeleria 01",
+        titulo: "cuaderno 100 Cosido ",
+        imagen: "./img/papeleria/01.webp",
+        categoria: {
+            nombre: "tableros niños",
+            id: "papeleria"
+        },
+        precio: 300000
+
+    },      
 
 ]
 /* buscar el div donde vamos a meter los productos
@@ -82,6 +114,10 @@ const botonesCategorias =document.querySelectorAll(".boton-categoria");
 
 /* cambiamos el titulo de cada pestaña de la categoria */
 const tituloPrincipal = document.querySelector("#titulo-principal");
+
+//ESTO SE hace para actualizar los botones
+let botonesAgregar = document.querySelectorAll(".producto-agregar");
+
 
 
 function cargarProductos(productosElegidos){
@@ -108,19 +144,19 @@ function cargarProductos(productosElegidos){
                 <button class="producto-agregar" id="${producto.id}">Agregar</button>
         </div>`;
             contenedorProductos.append(div);
+            
 
     })
+    actualizarBotonesAgregar();
+    console.log(botonesAgregar);
 } 
 
 /* hasta aqui se cargan los productos con JS mediante el array de productos */
-cargarProductos(productos)
-
-
-
 /* con esta funcion aplicamos el selector del menu aside */
 /* es necesario el ID de los botones del panel lateral */
 
 /* manejo de filtros */
+cargarProductos(productos)
 
 botonesCategorias.forEach(boton =>{
     boton.addEventListener("click",(e) => {
@@ -137,7 +173,7 @@ botonesCategorias.forEach(boton =>{
         if (e.currentTarget.id !== "todos"){
             //se busca la coincidencia exacta por id de categoria
 
-            const productoBoton = productos.filter(producto =>producto.categoria.id === e.currentTarget.id);
+            const productoBoton = productos.filter(producto => producto.categoria.id === e.currentTarget.id);
             
             //cambiar titulo dinamicamente usando el texto del boton
             tituloPrincipal.innerText=e.currentTarget.innerText.trim();
@@ -152,3 +188,27 @@ botonesCategorias.forEach(boton =>{
 })}
 
 )
+
+//AL DARLE CLICK EN CADA SECCION DE LAS CATEGORIAS 
+//LOS BOTONES SON NUEVOS HAY QUE ACTUALIZAR LOS BOTONES
+
+//ahora a todos los botones agregar se le dabe asignar el addeventlistener
+
+function actualizarBotonesAgregar(){
+    botonesAgregar= document.querySelectorAll(".producto-agregar");
+
+
+
+    botonesAgregar.forEach(boton =>{
+        boton.addEventListener("click", agregarAlCarrito);
+    })
+}
+const productosEnCarrito =[];
+
+function agregarAlCarrito(e){
+    const idBoton= e.currentTarget.id;
+//buscar en el array productos
+    const productoAgregado =producto.find(producto => producto.id === idBoton);
+    productosEnCarrito.push(productoAgregado);
+    console.log(productosEnCarrito)
+}

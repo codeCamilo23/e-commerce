@@ -59,13 +59,13 @@ aside{
     background-color: transparent;
     border: 0;
     color: var(--clr-white);
-    font-size: 1rem;
+    font-size: 8rem;
     cursor: pointer;
     font-weight: 600;
     display: flex;
-    gap: 2rem;
+    gap: 4rem;
     padding: 1rem;
-    font-size: .85rem;
+    font-size: .95rem;
 
 }
 .boton-menu > i.bi-hand-index-thumb{
